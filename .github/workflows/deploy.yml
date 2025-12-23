@@ -33,7 +33,7 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          GITHUB_USERNAME: ${{ vars.GITHUB_USERNAME || 'octocat' }}
+          GITHUB_USERNAME: ${{ vars.GITHUB_USERNAME || 'parsavision' }}
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
