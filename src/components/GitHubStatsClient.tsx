@@ -16,22 +16,24 @@ export function GitHubStatsClient({ username }: GitHubStatsClientProps) {
   useEffect(() => {
     async function fetchStats() {
       try {
-        // Fetch user data
-        const userResponse = await fetch(
-          `https://api.github.com/users/${username}`
-        );
-        if (!userResponse.ok) {
-          throw new Error("Failed to fetch GitHub user");
-        }
-        const user = await userResponse.json();
+        // Fetch user data directly from GitHub API
+        const [userResponse, reposResponse] = await Promise.all([
+          fetch(`https://api.github.com/users/${username}`, {
+            headers: { Accept: "application/vnd.github.v3+json" },
+          }),
+          fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`, {
+            headers: { Accept: "application/vnd.github.v3+json" },
+          }),
+        ]);
 
-        // Fetch repos
-        const reposResponse = await fetch(
-          `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`
-        );
-        if (!reposResponse.ok) {
-          throw new Error("Failed to fetch GitHub repos");
+        if (!userResponse.ok) {
+          throw new Error(`GitHub API error: ${userResponse.status}`);
         }
+        if (!reposResponse.ok) {
+          throw new Error(`GitHub API error: ${reposResponse.status}`);
+        }
+
+        const user = await userResponse.json();
         const repos = await reposResponse.json();
 
         // Calculate stats
@@ -58,7 +60,7 @@ export function GitHubStatsClient({ username }: GitHubStatsClientProps) {
           .map(([name, count]) => ({
             name,
             count,
-            percentage: Math.round((count / totalWithLanguage) * 100),
+            percentage: totalWithLanguage > 0 ? Math.round((count / totalWithLanguage) * 100) : 0,
           }))
           .sort((a, b) => b.count - a.count)
           .slice(0, 6);
