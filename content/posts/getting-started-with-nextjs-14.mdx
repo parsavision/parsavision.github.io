@@ -146,18 +146,18 @@ Stay tuned for more!
 
 Next.js 14 ویژگی‌های قدرتمند جدیدی را معرفی می‌کند که ساخت اپلیکیشن‌های وب را شهودی‌تر و با کارایی بالاتر می‌کند. در این راهنما، اصول App Router و نحوه استفاده موثر از Server Components را بررسی می‌کنیم.
 
-## چه چیزهای جدیدی در Next.js 14 هست
+## ویژگی‌های جدید Next.js 14
 
 Next.js 14 چندین بهبود هیجان‌انگیز به همراه دارد:
 
 - **Turbopack**: یک باندلر سریع‌تر نوشته شده با Rust
-- **Server Actions**: تغییرات سمت سرور ساده‌شده
+- **Server Actions**: ساده‌سازی عملیات سمت سرور
 - **Partial Prerendering**: ترکیب محتوای استاتیک و داینامیک
-- **بهینه‌سازی تصویر بهبودیافته**: عملکرد بهتر به صورت پیش‌فرض
+- **بهینه‌سازی تصاویر**: عملکرد بهتر به صورت پیش‌فرض
 
 ## راه‌اندازی پروژه
 
-برای ایجاد یک پروژه Next.js 14 جدید، این دستور را اجرا کنید:
+برای ایجاد یک پروژه جدید Next.js 14، این دستور را اجرا کنید:
 
 ```bash
 npx create-next-app@latest my-app --typescript --tailwind --app
@@ -165,56 +165,56 @@ cd my-app
 npm run dev
 ```
 
-این کار یک پروژه با TypeScript، Tailwind CSS و App Router را به صورت پیش‌فرض راه‌اندازی می‌کند.
+این دستور یک پروژه با TypeScript، Tailwind CSS و App Router را به صورت پیش‌فرض راه‌اندازی می‌کند.
 
-## درک App Router
+## آشنایی با App Router
 
-App Router از یک رویکرد مسیریابی مبتنی بر فایل‌سیستم با برخی قراردادهای کلیدی استفاده می‌کند:
+App Router از رویکرد مسیریابی مبتنی بر فایل‌سیستم استفاده می‌کند:
 
-| فایل | کاربرد |
-|------|---------|
-| `page.tsx` | تعریف UI برای یک مسیر |
-| `layout.tsx` | UI مشترک بین مسیرها |
-| `loading.tsx` | حالت بارگذاری |
-| `error.tsx` | مرز خطا |
-| `not-found.tsx` | صفحه 404 |
+| کاربرد | فایل |
+|---------|------|
+| تعریف رابط کاربری برای یک مسیر | `page.tsx` |
+| رابط کاربری مشترک بین مسیرها | `layout.tsx` |
+| نمایش حالت بارگذاری | `loading.tsx` |
+| مدیریت خطاها | `error.tsx` |
+| صفحه ۴۰۴ | `not-found.tsx` |
 
 ### ایجاد اولین مسیر
 
-یک فایل در `app/blog/page.tsx` ایجاد کنید:
+یک فایل در مسیر `app/blog/page.tsx` ایجاد کنید:
 
 ```tsx
 export default function BlogPage() {
   return (
     <div>
       <h1>به بلاگ من خوش آمدید</h1>
-      <p>این به صورت پیش‌فرض یک server component است.</p>
+      <p>این به صورت پیش‌فرض یک Server Component است.</p>
     </div>
   );
 }
 ```
 
-<Callout type="info" title="Server Components">
-به صورت پیش‌فرض، تمام کامپوننت‌ها در App Router، Server Components هستند. این یعنی آن‌ها روی سرور رندر می‌شوند و HTML را به کلاینت ارسال می‌کنند که عملکرد بارگذاری اولیه صفحه را بهبود می‌بخشد.
+<Callout type="info" title="کامپوننت‌های سرور">
+به صورت پیش‌فرض، تمام کامپوننت‌ها در App Router از نوع Server Component هستند. این یعنی آن‌ها روی سرور رندر می‌شوند و HTML را به کلاینت ارسال می‌کنند که باعث بهبود عملکرد بارگذاری اولیه صفحه می‌شود.
 </Callout>
 
-## Server در مقابل Client Components
+## تفاوت Server و Client Components
 
-درک اینکه چه زمانی از هر نوع استفاده کنید بسیار مهم است:
+درک زمان استفاده از هر نوع کامپوننت بسیار مهم است:
 
-### Server Components (پیش‌فرض)
+### کامپوننت‌های سرور (پیش‌فرض)
 
-استفاده برای:
-- واکشی داده
+مناسب برای:
+- واکشی داده‌ها
 - دسترسی به منابع بک‌اند
-- نگهداری اطلاعات حساس روی سرور
+- حفظ اطلاعات حساس در سرور
 
-### Client Components
+### کامپوننت‌های کلاینت
 
-برای موارد زیر دستور `"use client"` را اضافه کنید:
-- تعاملات (onClick، onChange)
-- APIهای مرورگر (localStorage، window)
-- State و effects (useState، useEffect)
+برای موارد زیر از دستور `"use client"` استفاده کنید:
+- تعاملات کاربر (onClick، onChange)
+- استفاده از APIهای مرورگر (localStorage، window)
+- مدیریت State و Effects (useState، useEffect)
 
 ```tsx
 "use client";
@@ -232,13 +232,13 @@ export function Counter() {
 }
 ```
 
-<Callout type="warning" title="نکته عملکردی">
-فقط در صورت لزوم از `"use client"` استفاده کنید. درخت کامپوننت خود را تا حد امکان server-rendered نگه دارید برای عملکرد بهتر.
+<Callout type="warning" title="نکته مهم">
+فقط در صورت نیاز از `"use client"` استفاده کنید. تا حد امکان کامپوننت‌ها را در سمت سرور رندر کنید تا عملکرد بهتری داشته باشید.
 </Callout>
 
-## واکشی داده
+## واکشی داده‌ها
 
-Next.js 14 واکشی داده را با Server Components async ساده می‌کند:
+Next.js 14 واکشی داده را با استفاده از Server Components ناهمگام ساده کرده است:
 
 ```tsx
 async function getUser(id: string) {
@@ -262,14 +262,14 @@ export default async function UserPage({
 }
 ```
 
-## نتیجه‌گیری
+## جمع‌بندی
 
-Next.js 14 یک گام مهم رو به جلو در توسعه وب مبتنی بر React است. App Router همراه با Server Components، تجربه توسعه‌دهنده عالی را فراهم می‌کند در حالی که عملکرد بهینه را ارائه می‌دهد.
+Next.js 14 یک گام مهم در توسعه وب مبتنی بر React است. App Router به همراه Server Components، تجربه توسعه عالی و عملکرد بهینه را فراهم می‌کند.
 
-در پست‌های آینده، عمیق‌تر به این موضوعات می‌پردازیم:
-- Server Actions برای mutations
-- Streaming و Suspense
-- الگوهای احراز هویت
+در پست‌های آینده، به این موضوعات خواهیم پرداخت:
+- استفاده از Server Actions
+- کار با Streaming و Suspense
+- پیاده‌سازی احراز هویت
 - استراتژی‌های تست
 
-منتظر بیشتر باشید!
+منتظر مطالب بیشتر باشید!

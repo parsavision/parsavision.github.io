@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/language";
 import { SearchBar } from "./SearchBar";
-import { Menu, X, Github, Twitter, Rss } from "lucide-react";
+import { Menu, X, Languages, Rss } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import type { PostMeta } from "@/lib/posts";
@@ -13,15 +14,26 @@ interface HeaderProps {
   posts: PostMeta[];
 }
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Blog", href: "/blog/" },
-  { name: "About", href: "/about/" },
-];
+const navigation = {
+  en: [
+    { name: "Home", href: "/" },
+    { name: "Blog", href: "/blog/" },
+    { name: "About", href: "/about/" },
+  ],
+  fa: [
+    { name: "خانه", href: "/" },
+    { name: "بلاگ", href: "/blog/" },
+    { name: "درباره من", href: "/about/" },
+  ],
+};
 
 export function Header({ posts }: HeaderProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, toggleLang, isRtl } = useLanguage();
+
+  const navItems = navigation[lang];
+  const blogName = lang === "fa" ? "پارسا" : "Parsa";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-lg">
@@ -30,17 +42,23 @@ export function Header({ posts }: HeaderProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold text-xl tracking-tight transition-colors hover:text-muted-foreground"
+            className={cn(
+              "flex items-center gap-2 font-bold text-xl tracking-tight transition-colors hover:text-muted-foreground",
+              isRtl && "font-[family-name:var(--font-vazirmatn)]"
+            )}
           >
             <span className="text-2xl">✦</span>
-            <span>MyBlog</span>
+            <span>{blogName}</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-            {navigation.map((item) => (
+          <nav className={cn(
+            "hidden md:flex items-center gap-6",
+            isRtl && "font-[family-name:var(--font-vazirmatn)]"
+          )}>
+            {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-foreground",
@@ -59,25 +77,15 @@ export function Header({ posts }: HeaderProps) {
             <SearchBar posts={posts} />
             
             <div className="hidden md:flex items-center gap-1">
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-4 w-4" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
+              {/* Language Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleLang}
+                aria-label="Toggle language"
+                title={lang === "en" ? "فارسی" : "English"}
+              >
+                <Languages className="h-4 w-4" />
               </Button>
               <Button variant="ghost" size="icon" asChild>
                 <a href="/feed.xml" aria-label="RSS Feed">
@@ -106,10 +114,13 @@ export function Header({ posts }: HeaderProps) {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-border">
-          <nav className="container mx-auto px-4 py-4 space-y-3">
-            {navigation.map((item) => (
+          <nav className={cn(
+            "container mx-auto px-4 py-4 space-y-3",
+            isRtl && "font-[family-name:var(--font-vazirmatn)]"
+          )}>
+            {navItems.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
@@ -123,24 +134,14 @@ export function Header({ posts }: HeaderProps) {
               </Link>
             ))}
             <div className="flex items-center gap-2 pt-4 border-t border-border">
-              <Button variant="outline" size="sm" asChild>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-4 w-4 mr-2" />
-                  GitHub
-                </a>
+              <Button variant="outline" size="sm" onClick={toggleLang}>
+                <Languages className="h-4 w-4 me-2" />
+                {lang === "en" ? "فارسی" : "English"}
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter className="h-4 w-4 mr-2" />
-                  Twitter
+                <a href="/feed.xml">
+                  <Rss className="h-4 w-4 me-2" />
+                  RSS
                 </a>
               </Button>
             </div>

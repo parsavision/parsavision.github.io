@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { GithubIcon, Languages } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 import { GitHubStatsClient } from "@/components/GitHubStatsClient";
+import { useLanguage } from "@/lib/language";
 
 interface AboutContentProps {
   githubUsername: string;
@@ -48,7 +48,6 @@ const content = {
     githubButton: "Check out my GitHub",
     skillsTitle: "Skills & Technologies",
     githubActivity: "GitHub Activity",
-    switchLang: "فارسی",
     projects: [
       { name: "Rust Tiny Steps", description: "Learning Rust through small exercises" },
       { name: "DevOps & Docker Tiny Steps", description: "Containerization stuff" },
@@ -76,7 +75,6 @@ const content = {
     githubButton: "سری به GitHub من بزن",
     skillsTitle: "مهارت‌ها و تکنولوژی‌ها",
     githubActivity: "فعالیت GitHub",
-    switchLang: "English",
     projects: [
       { name: "Rust Tiny Steps", description: "یادگیری Rust از طریق تمرین‌های کوچیک" },
       { name: "DevOps & Docker Tiny Steps", description: "چیزای مربوط به کانتینرسازی" },
@@ -87,29 +85,12 @@ const content = {
 };
 
 export function AboutContent({ githubUsername }: AboutContentProps) {
-  const [lang, setLang] = useState<"en" | "fa">("en");
+  const { lang } = useLanguage();
   const t = content[lang];
-  const isRtl = lang === "fa";
 
   return (
-    <div 
-      className={`container mx-auto px-4 py-12 ${isRtl ? "font-[family-name:var(--font-vazirmatn)]" : ""}`}
-      dir={isRtl ? "rtl" : "ltr"}
-    >
+    <div className="container mx-auto px-4 py-12">
       <div className="max-w-4xl mx-auto">
-        {/* Language Toggle */}
-        <div className={`flex ${isRtl ? "justify-start" : "justify-end"} mb-8`}>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setLang(lang === "en" ? "fa" : "en")}
-            className="flex items-center gap-2"
-          >
-            <Languages className="h-4 w-4" />
-            {t.switchLang}
-          </Button>
-        </div>
-
         {/* Header */}
         <section className="mb-12">
           <div className="space-y-6 text-center mb-12">

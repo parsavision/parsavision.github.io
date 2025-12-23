@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Languages, Calendar, Clock, Tag, ArrowLeft, ArrowRight } from "lucide-react";
+import { Calendar, Clock, Tag, ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { formatDate } from "@/lib/utils";
+import { useLanguage } from "@/lib/language";
 import type { PostFrontmatter } from "@/lib/posts";
 
 interface BlogPostContentProps {
@@ -20,13 +21,9 @@ interface BlogPostContentProps {
 const uiText = {
   en: {
     backToBlog: "Back to Blog",
-    relatedPosts: "Related Posts",
-    switchLang: "فارسی",
   },
   fa: {
     backToBlog: "بازگشت به بلاگ",
-    relatedPosts: "پست‌های مرتبط",
-    switchLang: "English",
   },
 };
 
@@ -37,50 +34,37 @@ export function BlogPostContent({
   persianContent,
   hasPersian,
 }: BlogPostContentProps) {
-  const [lang, setLang] = useState<"en" | "fa">("en");
-  const isPersian = lang === "fa";
+  const { lang, isRtl } = useLanguage();
   const t = uiText[lang];
 
   // Get localized content
-  const title = isPersian && frontmatter.title_fa ? frontmatter.title_fa : frontmatter.title;
-  const description = isPersian && frontmatter.description_fa ? frontmatter.description_fa : frontmatter.description;
-  const category = isPersian && frontmatter.category_fa ? frontmatter.category_fa : frontmatter.category;
-  const tags = isPersian && frontmatter.tags_fa ? frontmatter.tags_fa : frontmatter.tags;
+  const title = isRtl && frontmatter.title_fa ? frontmatter.title_fa : frontmatter.title;
+  const description = isRtl && frontmatter.description_fa ? frontmatter.description_fa : frontmatter.description;
+  const category = isRtl && frontmatter.category_fa ? frontmatter.category_fa : frontmatter.category;
+  const tags = isRtl && frontmatter.tags_fa ? frontmatter.tags_fa : frontmatter.tags;
+
+  // Show Persian content if available and language is Persian, otherwise show English
+  const showPersian = isRtl && hasPersian;
 
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-4xl mx-auto">
-        {/* Top Bar: Back Button and Language Toggle */}
-        <div className="flex justify-between items-center mb-8">
+        {/* Back Button */}
+        <div className="mb-8">
           <Button variant="ghost" asChild>
             <Link href="/blog/">
-              {isPersian ? (
-                <ArrowRight className="ml-2 h-4 w-4" />
+              {isRtl ? (
+                <ArrowRight className="me-2 h-4 w-4" />
               ) : (
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="me-2 h-4 w-4" />
               )}
               {t.backToBlog}
             </Link>
           </Button>
-
-          {hasPersian && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setLang(lang === "en" ? "fa" : "en")}
-              className="flex items-center gap-2"
-            >
-              <Languages className="h-4 w-4" />
-              {t.switchLang}
-            </Button>
-          )}
         </div>
 
         {/* Post Header */}
-        <header
-          className={`space-y-6 mb-12 ${isPersian ? "font-[family-name:var(--font-vazirmatn)]" : ""}`}
-          dir={isPersian ? "rtl" : "ltr"}
-        >
+        <header className="space-y-6 mb-12">
           {category && (
             <Link href={`/category/${frontmatter.category?.toLowerCase()}/`}>
               <Badge variant="outline" className="hover:bg-secondary transition-colors">
@@ -128,11 +112,8 @@ export function BlogPostContent({
         <Separator className="mb-12" />
 
         {/* Content */}
-        <article
-          className={`prose prose-lg prose-invert max-w-none ${isPersian ? "font-[family-name:var(--font-vazirmatn)]" : ""}`}
-          dir={isPersian ? "rtl" : "ltr"}
-        >
-          {isPersian && persianContent ? persianContent : englishContent}
+        <article className="prose prose-lg prose-invert max-w-none">
+          {showPersian && persianContent ? persianContent : englishContent}
         </article>
       </div>
     </div>
