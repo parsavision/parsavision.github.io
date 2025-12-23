@@ -1,26 +1,365 @@
 @import "tailwindcss";
 
+/* CSS Custom Properties for shadcn/ui theming */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 3%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 3%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 0 0% 100%;
+  --radius: 0.5rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Prose styling for MDX content */
+.prose {
+  --tw-prose-body: hsl(var(--foreground));
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-lead: hsl(var(--muted-foreground));
+  --tw-prose-links: hsl(var(--foreground));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-counters: hsl(var(--muted-foreground));
+  --tw-prose-bullets: hsl(var(--muted-foreground));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-quote-borders: hsl(var(--border));
+  --tw-prose-captions: hsl(var(--muted-foreground));
+  --tw-prose-code: hsl(var(--foreground));
+  --tw-prose-pre-code: hsl(var(--foreground));
+  --tw-prose-pre-bg: hsl(var(--card));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+}
+
+/* Code block styling */
+pre {
+  @apply rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 overflow-x-auto;
+}
+
+pre code {
+  @apply text-sm;
+}
+
+code {
+  @apply rounded bg-[hsl(var(--secondary))] px-1.5 py-0.5 text-sm font-mono;
+}
+
+pre code {
+  @apply bg-transparent p-0;
+}
+
+/* Syntax highlighting */
+[data-rehype-pretty-code-figure] {
+  @apply relative my-6;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  @apply py-4;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply rounded-t-lg border border-b-0 border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-4 py-2 text-sm font-medium;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply rounded-t-none;
+}
+
+[data-line] {
+  @apply px-4 border-l-2 border-transparent;
+}
+
+[data-highlighted-line] {
+  @apply bg-[hsl(var(--secondary))] border-l-blue-500;
+}
+
+[data-line-numbers] {
+  counter-reset: line;
+}
+
+[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-muted-foreground;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[hsl(var(--muted))] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[hsl(var(--muted-foreground))];
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-white/20;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styling */
+*:focus-visible {
+  @apply outline-none ring-2 ring-[hsl(var(--ring))] ring-offset-2 ring-offset-[hsl(var(--background))];
+}
+
+/* Link hover effects */
+a {
+  @apply transition-colors duration-200;
+}
+
+/* Animation classes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-up 0.5s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* KaTeX math styling */
+.katex-display {
+  @apply my-6 overflow-x-auto py-2;
+}
+
+.katex {
+  @apply text-[hsl(var(--foreground))];
+}
+
+/* Mermaid diagram styling */
+.mermaid {
+  @apply my-6 flex justify-center;
+}
+
+/* Table styling */
+table {
+  @apply w-full border-collapse my-6;
+}
+
+th {
+  @apply border border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-4 py-2 text-left font-semibold;
+}
+
+td {
+  @apply border border-[hsl(var(--border))] px-4 py-2;
+}
+
+/* Blockquote styling */
+blockquote {
+  @apply border-l-4 border-[hsl(var(--border))] pl-4 italic my-6 text-[hsl(var(--muted-foreground))];
+}
+
+/* Heading anchor links */
+.heading-anchor {
+  @apply opacity-0 ml-2 text-[hsl(var(--muted-foreground))] transition-opacity;
+}
+
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+  @apply opacity-100;
+}
+
+/* Code block with line numbers */
+.code-with-line-numbers code {
+  counter-reset: line;
+}
+
+.code-with-line-numbers code > span {
+  display: inline-block;
+  width: 100%;
+}
+
+.code-with-line-numbers code > span::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.75rem;
+}
+
+/* RTL Support for Persian/Farsi content */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] blockquote {
+  @apply border-l-0 border-r-4 pl-0 pr-4;
+}
+
+[dir="rtl"] .heading-anchor {
+  @apply ml-0 mr-2;
+}
+
+[dir="rtl"] th {
+  text-align: right;
+}
+
+/* Code blocks should always be LTR */
+[dir="rtl"] pre,
+[dir="rtl"] code,
+[dir="rtl"] [data-rehype-pretty-code-figure] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Enhanced Syntax Highlighting with rehype-pretty-code */
+[data-rehype-pretty-code-figure] {
+  @apply relative my-6;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  @apply py-4 px-0;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply grid text-sm;
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-4 border-l-2 border-transparent;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line],
+[data-rehype-pretty-code-figure] .highlighted {
+  @apply bg-[hsl(var(--secondary))] border-l-blue-500;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars],
+[data-rehype-pretty-code-figure] .word {
+  @apply bg-blue-500/20 rounded px-1 py-0.5;
+}
+
+/* Line numbers for rehype-pretty-code */
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-4 mr-6 text-right text-muted-foreground text-xs;
+}
+
+/* Language badge styling */
+[data-rehype-pretty-code-figure] [data-language] {
+  @apply absolute top-0 right-0 rounded-bl-lg bg-[hsl(var(--secondary))] px-3 py-1 text-xs font-medium text-muted-foreground;
+}
+
+/* Caption/title styling */
+[data-rehype-pretty-code-title] {
+  @apply rounded-t-lg border border-b-0 border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-4 py-2 text-sm font-medium font-mono;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply rounded-t-none;
+}
+
+/* Inline code styling (not in pre blocks) */
+:not(pre) > code {
+  @apply rounded bg-[hsl(var(--secondary))] px-1.5 py-0.5 text-sm font-mono;
+}
+
+pre code {
+  @apply bg-transparent p-0 text-sm;
 }

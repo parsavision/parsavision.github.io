@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "complete-guide-to-mdx-features",
+    "title": "A Complete Guide to MDX Features in Our Blog",
+    "description": "Explore all the rich text features available in our blog including math equations, code blocks, callouts, tables, and more.",
+    "date": "2024-12-20",
+    "tags": [
+      "MDX",
+      "Markdown",
+      "Documentation",
+      "Features"
+    ],
+    "category": "Tutorials",
+    "readingTime": "3 min read"
+  },
+  {
+    "slug": "getting-started-with-nextjs-14",
+    "title": "Getting Started with Next.js 14 and App Router",
+    "description": "A comprehensive guide to building modern web applications with Next.js 14, covering the App Router, Server Components, and best practices.",
+    "date": "2024-12-20",
+    "tags": [
+      "Next.js",
+      "React",
+      "Web Development",
+      "Tutorial"
+    ],
+    "category": "Technology",
+    "readingTime": "3 min read"
+  },
+  {
+    "slug": "mastering-typescript-advanced-patterns",
+    "title": "Mastering TypeScript: Advanced Patterns and Best Practices",
+    "description": "Deep dive into advanced TypeScript patterns including generics, conditional types, and type inference that will level up your code.",
+    "date": "2024-12-18",
+    "tags": [
+      "TypeScript",
+      "JavaScript",
+      "Programming",
+      "Best Practices"
+    ],
+    "category": "Programming",
+    "readingTime": "4 min read"
+  },
+  {
+    "slug": "building-design-system-tailwind",
+    "title": "Building a Design System with Tailwind CSS",
+    "description": "Learn how to create a consistent, maintainable design system using Tailwind CSS, including custom themes, component patterns, and best practices.",
+    "date": "2024-12-15",
+    "tags": [
+      "Tailwind CSS",
+      "CSS",
+      "Design System",
+      "UI/UX"
+    ],
+    "category": "Tutorials",
+    "readingTime": "4 min read"
+  },
+  {
+    "slug": "power-of-static-site-generation",
+    "title": "The Power of Static Site Generation for Blogs",
+    "description": "Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.",
+    "date": "2024-12-10",
+    "tags": [
+      "SSG",
+      "Performance",
+      "SEO",
+      "Blogging"
+    ],
+    "category": "Technology",
+    "readingTime": "4 min read"
+  }
+]
