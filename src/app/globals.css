@@ -92,7 +92,7 @@ pre code {
 }
 
 code {
-  @apply rounded bg-[hsl(var(--secondary))] px-1.5 py-0.5 text-sm font-mono;
+  @apply rounded bg-[hsl(var(--secondary))] px-1.5 py-0.5 text-sm font-mono text-[hsl(var(--foreground))];
 }
 
 pre code {
@@ -243,6 +243,11 @@ td {
   @apply border border-[hsl(var(--border))] px-4 py-2;
 }
 
+td code,
+th code {
+  @apply rounded bg-[hsl(var(--muted))] px-1.5 py-0.5 text-sm font-mono text-[hsl(var(--foreground))];
+}
+
 /* Blockquote styling */
 blockquote {
   @apply border-l-4 border-[hsl(var(--border))] pl-4 italic my-6 text-[hsl(var(--muted-foreground))];
@@ -357,7 +362,7 @@ h4:hover .heading-anchor {
 
 /* Inline code styling (not in pre blocks) */
 :not(pre) > code {
-  @apply rounded bg-[hsl(var(--secondary))] px-1.5 py-0.5 text-sm font-mono;
+  @apply rounded bg-[hsl(var(--secondary))] px-1.5 py-0.5 text-sm font-mono text-[hsl(var(--foreground))];
 }
 
 pre code {

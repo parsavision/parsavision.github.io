@@ -1,37 +1,56 @@
 {
   "main": {
-    "id": "658ee71cdee395dd",
+    "id": "c97193e20ab8304f",
     "type": "split",
     "children": [
       {
-        "id": "16fe669e01debef9",
+        "id": "be5260d55400d1f1",
         "type": "tabs",
         "children": [
           {
-            "id": "3eddac8c80bd66f8",
+            "id": "6d840222a5a06e4c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "power-of-static-site-generation.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "power-of-static-site-generation"
+            }
+          },
+          {
+            "id": "a1a1102aa7929dd5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "mastering-typescript-advanced-patterns.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "mastering-typescript-advanced-patterns"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "cab58aacea2a033b",
+    "id": "d8b87c4f1e5f0a5a",
     "type": "split",
     "children": [
       {
-        "id": "ba9e0f4778aa0cc7",
+        "id": "2b1006c6347df1ee",
         "type": "tabs",
         "children": [
           {
-            "id": "18070d9fb981375f",
+            "id": "85663d7335cee95c",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +63,7 @@
             }
           },
           {
-            "id": "71ec809f84c4bc4a",
+            "id": "1ef3b10081357238",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +80,7 @@
             }
           },
           {
-            "id": "ae52c319e8c55947",
+            "id": "e66efc466fd5068b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -77,20 +96,19 @@
     "width": 300
   },
   "right": {
-    "id": "0833aaa0c88538e2",
+    "id": "7d080c6f0d2291e6",
     "type": "split",
     "children": [
       {
-        "id": "77184afc5db548ba",
+        "id": "df9f6d04f6904538",
         "type": "tabs",
         "children": [
           {
-            "id": "3b24c0dbdd81d69d",
+            "id": "a70a6fd44b4ae189",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test post.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,25 +118,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for test post"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "def9d52b7413e3d1",
+            "id": "454428e1c815a40f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "test post.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from test post"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "65ca77f6b203e320",
+            "id": "77d007daf029d5bb",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,7 +150,7 @@
             }
           },
           {
-            "id": "eeb00f26736667b9",
+            "id": "81f668a0f5190577",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -147,18 +164,18 @@
             }
           },
           {
-            "id": "e2780d5cb76bb479",
+            "id": "f0ad22ec8bd0ced0",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "test post.md",
+                "file": "Untitled.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of test post"
+              "title": "Outline of Untitled"
             }
           }
         ]
@@ -179,8 +196,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "18070d9fb981375f",
+  "active": "a1a1102aa7929dd5",
   "lastOpenFiles": [
-    "test post.md"
+    "power-of-static-site-generation.md",
+    "Untitled.md",
+    "test.md",
+    "Untitled 1.md",
+    "Untitled.canvas",
+    "Untitled.base",
+    "building-design-system-tailwind.md"
   ]
 }
