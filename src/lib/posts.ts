@@ -15,6 +15,11 @@ export interface PostFrontmatter {
   image?: string;
   author?: string;
   lang?: "en" | "fa"; // Language: 'en' for English, 'fa' for Persian/Farsi
+  // Bilingual support - Persian translations
+  title_fa?: string;
+  description_fa?: string;
+  category_fa?: string;
+  tags_fa?: string[];
 }
 
 export interface Post {

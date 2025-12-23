@@ -6,12 +6,8 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { PostCard } from "@/components/PostCard";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import { formatDate } from "@/lib/utils";
-import { Calendar, Clock, ArrowLeft, ArrowRight, Tag } from "lucide-react";
-import Link from "next/link";
+import { BlogPostContent } from "@/components/BlogPostContent";
 import type { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -26,7 +22,6 @@ const rehypePrettyCodeOptions: RehypePrettyCodeOptions = {
   keepBackground: true,
   defaultLang: "plaintext",
   onVisitLine(node) {
-    // Add a class to each line for styling
     if (node.children.length === 0) {
       node.children = [{ type: "text", value: " " }];
     }
@@ -38,6 +33,9 @@ const rehypePrettyCodeOptions: RehypePrettyCodeOptions = {
     node.properties.className = ["word"];
   },
 };
+
+// Content delimiter for Persian translations
+const PERSIAN_DELIMITER = "<!-- PERSIAN -->";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -90,9 +88,11 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedPosts = getRelatedPosts(slug, 3);
 
-  // Determine if the post is in Persian (RTL)
-  const isPersian = post.frontmatter.lang === "fa";
-  const textDirection = isPersian ? "rtl" : "ltr";
+  // Split content into English and Persian parts
+  const contentParts = post.content.split(PERSIAN_DELIMITER);
+  const englishContent = contentParts[0].trim();
+  const persianContent = contentParts[1]?.trim();
+  const hasPersian = !!persianContent;
 
   // JSON-LD structured data for SEO
   const jsonLd = {
@@ -115,6 +115,35 @@ export default async function BlogPostPage({ params }: Props) {
     },
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mdxOptions: any = {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm, remarkMath],
+      rehypePlugins: [
+        rehypeSlug,
+        rehypeKatex,
+        [rehypePrettyCode, rehypePrettyCodeOptions],
+      ],
+    },
+  };
+
+  // Pre-render MDX content on the server
+  const englishMdx = (
+    <MDXRemote
+      source={englishContent}
+      components={mdxComponents}
+      options={mdxOptions}
+    />
+  );
+
+  const persianMdx = hasPersian ? (
+    <MDXRemote
+      source={persianContent}
+      components={mdxComponents}
+      options={mdxOptions}
+    />
+  ) : undefined;
+
   return (
     <>
       <script
@@ -123,117 +152,51 @@ export default async function BlogPostPage({ params }: Props) {
       />
       <ReadingProgress />
       <ScrollToTop />
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-        {/* Back Button */}
-        <Button variant="ghost" asChild className="mb-8">
-          <Link href="/blog/">
-            {isPersian ? (
-              <ArrowRight className="ml-2 h-4 w-4" />
-            ) : (
-              <ArrowLeft className="mr-2 h-4 w-4" />
-            )}
-            {isPersian ? "بازگشت به بلاگ" : "Back to Blog"}
-          </Link>
-        </Button>
 
-        {/* Post Header */}
-        <header 
-          className={`space-y-6 mb-12 ${isPersian ? "font-[family-name:var(--font-vazirmatn)]" : ""}`}
-          dir={textDirection}
-        >
-          {post.frontmatter.category && (
-            <Link href={`/category/${post.frontmatter.category.toLowerCase()}/`}>
-              <Badge variant="outline" className="hover:bg-secondary transition-colors">
-                {post.frontmatter.category}
-              </Badge>
-            </Link>
-          )}
-
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-            {post.frontmatter.title}
-          </h1>
-
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            {post.frontmatter.description}
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="h-4 w-4" />
-              {formatDate(post.frontmatter.date)}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4" />
-              {post.readingTime}
-            </span>
+      <BlogPostContent
+        frontmatter={post.frontmatter}
+        readingTime={post.readingTime}
+        englishContent={
+          <div className="grid lg:grid-cols-4 gap-12">
+            <div className="lg:col-span-3">{englishMdx}</div>
+            <aside className="hidden lg:block">
+              <div className="sticky top-24">
+                <TableOfContents />
+              </div>
+            </aside>
           </div>
-
-          {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2">
-              <Tag className="h-4 w-4 text-muted-foreground" />
-              {post.frontmatter.tags.map((tag) => (
-                <Link key={tag} href={`/tag/${tag.toLowerCase()}/`}>
-                  <Badge
-                    variant="secondary"
-                    className="hover:bg-white hover:text-black transition-colors cursor-pointer"
-                  >
-                    {tag}
-                  </Badge>
-                </Link>
-              ))}
+        }
+        persianContent={
+          hasPersian ? (
+            <div className="grid lg:grid-cols-4 gap-12 lg:grid-flow-dense">
+              <div className="lg:col-span-3">{persianMdx}</div>
+              <aside className="hidden lg:block lg:col-start-1 lg:row-start-1">
+                <div className="sticky top-24">
+                  <TableOfContents />
+                </div>
+              </aside>
             </div>
-          )}
-        </header>
+          ) : undefined
+        }
+        hasPersian={hasPersian}
+      />
 
-        <Separator className="mb-12" />
-
-        {/* Content with TOC */}
-        <div className={`grid lg:grid-cols-4 gap-12 ${isPersian ? "lg:grid-flow-dense" : ""}`}>
-          {/* Main Content */}
-          <article 
-            className={`lg:col-span-3 prose prose-lg prose-invert max-w-none ${isPersian ? "font-[family-name:var(--font-vazirmatn)]" : ""}`}
-            dir={textDirection}
-          >
-            <MDXRemote
-              source={post.content}
-              components={mdxComponents}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm, remarkMath],
-                  rehypePlugins: [
-                    rehypeSlug, 
-                    rehypeKatex,
-                    [rehypePrettyCode, rehypePrettyCodeOptions],
-                  ],
-                },
-              }}
-            />
-          </article>
-
-          {/* Table of Contents */}
-          <aside className={`hidden lg:block ${isPersian ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-            <div className="sticky top-24">
-              <TableOfContents />
-            </div>
-          </aside>
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <div className="container mx-auto px-4 pb-12">
+          <div className="max-w-4xl mx-auto">
+            <Separator className="mb-12" />
+            <section className="space-y-8">
+              <h2 className="text-2xl font-bold tracking-tight">Related Posts</h2>
+              <div className="grid gap-6 md:grid-cols-3">
+                {relatedPosts.map((relatedPost) => (
+                  <PostCard key={relatedPost.slug} post={relatedPost} />
+                ))}
+              </div>
+            </section>
+          </div>
         </div>
-
-        <Separator className="my-12" />
-
-        {/* Related Posts */}
-        {relatedPosts.length > 0 && (
-          <section className="space-y-8">
-            <h2 className="text-2xl font-bold tracking-tight">Related Posts</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              {relatedPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </section>
-        )}
-        </div>
-      </div>
+      )}
     </>
   );
 }
