@@ -21,6 +21,8 @@ const rehypePrettyCodeOptions: RehypePrettyCodeOptions = {
   theme: "github-dark",
   keepBackground: true,
   defaultLang: "plaintext",
+  // Disable inline code highlighting to prevent styling conflicts
+  bypassInlineCode: true,
   onVisitLine(node) {
     if (node.children.length === 0) {
       node.children = [{ type: "text", value: " " }];
