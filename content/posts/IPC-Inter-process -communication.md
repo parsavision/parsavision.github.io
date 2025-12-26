@@ -1,14 +1,16 @@
 ---
 title: IPC-Inter-process -communication
 date: 2025-12-26
-description: Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.
+description: IPC is a set of programming interfaces and methods that allow processes to communicate and synchronize their actions.
 category: Technology
 tags:
   - Tutorial
-featured: false
+featured: true
 author: Parsa
 ---
 # Understanding Inter-Process Communication (IPC): How Programs Talk to Each Other
+
+![[Pasted image 20251227014659.png]]
 
 In a modern operating system, thousands of tasks happen simultaneously. Each running program is called a **Process**. By design, the operating system keeps these processes isolated in their own private memory space to prevent one crashing program from taking down the entire system.
 
