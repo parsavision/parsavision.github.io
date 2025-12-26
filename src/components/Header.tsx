@@ -38,7 +38,7 @@ export function Header({ posts }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-lg">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
@@ -51,9 +51,9 @@ export function Header({ posts }: HeaderProps) {
             <span>{blogName}</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered absolutely */}
           <nav className={cn(
-            "hidden md:flex items-center gap-6",
+            "hidden md:flex items-center gap-6 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
             isRtl && "font-[family-name:var(--font-vazirmatn)]"
           )}>
             {navItems.map((item) => (
