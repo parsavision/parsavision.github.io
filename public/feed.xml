@@ -1,35 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>MyBlog</title>
-        <link>https://yourblog.github.io</link>
-        <description>A personal blog about technology, programming, and life.</description>
-        <lastBuildDate>Fri, 20 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <title>Parsa's Blog</title>
+        <link>https://parsavision.github.io</link>
+        <description>Personal blog about Rust, systems programming, security, and DevOps. I use Arch btw.</description>
+        <lastBuildDate>Wed, 15 Jan 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <image>
-            <title>MyBlog</title>
-            <url>https://yourblog.github.io/og-image.png</url>
-            <link>https://yourblog.github.io</link>
+            <title>Parsa's Blog</title>
+            <url>https://parsavision.github.io/og-image.png</url>
+            <link>https://parsavision.github.io</link>
         </image>
-        <copyright>All rights reserved 2025</copyright>
-        <item>
-            <title><![CDATA[A Complete Guide to MDX Features in Our Blog]]></title>
-            <link>https://yourblog.github.io/blog/complete-guide-to-mdx-features/</link>
-            <guid isPermaLink="false">https://yourblog.github.io/blog/complete-guide-to-mdx-features/</guid>
-            <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Explore all the rich text features available in our blog including math equations, code blocks, callouts, tables, and more.]]></description>
-            <category>MDX</category>
-            <category>Markdown</category>
-            <category>Documentation</category>
-            <category>Features</category>
-        </item>
+        <copyright>All rights reserved 2025, Parsa</copyright>
         <item>
             <title><![CDATA[Getting Started with Next.js 14 and App Router]]></title>
-            <link>https://yourblog.github.io/blog/getting-started-with-nextjs-14/</link>
-            <guid isPermaLink="false">https://yourblog.github.io/blog/getting-started-with-nextjs-14/</guid>
-            <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
+            <link>https://parsavision.github.io/blog/getting-started-with-nextjs-14/</link>
+            <guid isPermaLink="false">https://parsavision.github.io/blog/getting-started-with-nextjs-14/</guid>
+            <pubDate>Wed, 15 Jan 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[A comprehensive guide to building modern web applications with Next.js 14, covering the App Router, Server Components, and best practices.]]></description>
             <category>Next.js</category>
             <category>React</category>
@@ -37,10 +26,21 @@
             <category>Tutorial</category>
         </item>
         <item>
+            <title><![CDATA[A Complete Guide to MDX Features in Our Blog]]></title>
+            <link>https://parsavision.github.io/blog/complete-guide-to-mdx-features/</link>
+            <guid isPermaLink="false">https://parsavision.github.io/blog/complete-guide-to-mdx-features/</guid>
+            <pubDate>Fri, 10 Jan 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Explore all the rich text features available in our blog including math equations, code blocks, callouts, tables, and more.]]></description>
+            <category>MDX</category>
+            <category>Markdown</category>
+            <category>Documentation</category>
+            <category>Features</category>
+        </item>
+        <item>
             <title><![CDATA[Mastering TypeScript: Advanced Patterns and Best Practices]]></title>
-            <link>https://yourblog.github.io/blog/mastering-typescript-advanced-patterns/</link>
-            <guid isPermaLink="false">https://yourblog.github.io/blog/mastering-typescript-advanced-patterns/</guid>
-            <pubDate>Wed, 18 Dec 2024 00:00:00 GMT</pubDate>
+            <link>https://parsavision.github.io/blog/mastering-typescript-advanced-patterns/</link>
+            <guid isPermaLink="false">https://parsavision.github.io/blog/mastering-typescript-advanced-patterns/</guid>
+            <pubDate>Sun, 05 Jan 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Deep dive into advanced TypeScript patterns including generics, conditional types, and type inference that will level up your code.]]></description>
             <category>TypeScript</category>
             <category>JavaScript</category>
@@ -49,9 +49,9 @@
         </item>
         <item>
             <title><![CDATA[Building a Design System with Tailwind CSS]]></title>
-            <link>https://yourblog.github.io/blog/building-design-system-tailwind/</link>
-            <guid isPermaLink="false">https://yourblog.github.io/blog/building-design-system-tailwind/</guid>
-            <pubDate>Sun, 15 Dec 2024 00:00:00 GMT</pubDate>
+            <link>https://parsavision.github.io/blog/building-design-system-tailwind/</link>
+            <guid isPermaLink="false">https://parsavision.github.io/blog/building-design-system-tailwind/</guid>
+            <pubDate>Sat, 28 Dec 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Learn how to create a consistent, maintainable design system using Tailwind CSS, including custom themes, component patterns, and best practices.]]></description>
             <category>Tailwind CSS</category>
             <category>CSS</category>
@@ -60,9 +60,9 @@
         </item>
         <item>
             <title><![CDATA[The Power of Static Site Generation for Blogs]]></title>
-            <link>https://yourblog.github.io/blog/power-of-static-site-generation/</link>
-            <guid isPermaLink="false">https://yourblog.github.io/blog/power-of-static-site-generation/</guid>
-            <pubDate>Tue, 10 Dec 2024 00:00:00 GMT</pubDate>
+            <link>https://parsavision.github.io/blog/power-of-static-site-generation/</link>
+            <guid isPermaLink="false">https://parsavision.github.io/blog/power-of-static-site-generation/</guid>
+            <pubDate>Fri, 20 Dec 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.]]></description>
             <category>SSG</category>
             <category>Performance</category>

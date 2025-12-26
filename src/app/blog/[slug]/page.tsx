@@ -8,6 +8,7 @@ import { ReadingProgress } from "@/components/ReadingProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Separator } from "@/components/ui/separator";
 import { BlogPostContent } from "@/components/BlogPostContent";
+import { Giscus } from "@/components/Giscus";
 import type { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -106,14 +107,20 @@ export default async function BlogPostPage({ params }: Props) {
     dateModified: post.frontmatter.date,
     author: {
       "@type": "Person",
-      name: post.frontmatter.author || "Author",
+      name: post.frontmatter.author || "Parsa",
+      url: "https://github.com/parsavision",
     },
     keywords: post.frontmatter.tags?.join(", "),
     articleSection: post.frontmatter.category,
     wordCount: post.content.split(/\s+/).length,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://yourblog.com/blog/${slug}`,
+      "@id": `https://parsavision.github.io/blog/${slug}`,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Parsa",
+      url: "https://github.com/parsavision",
     },
   };
 
@@ -199,6 +206,17 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       )}
+
+      {/* Comments Section */}
+      <div className="container mx-auto px-4 pb-12">
+        <div className="max-w-4xl mx-auto">
+          <Separator className="mb-12" />
+          <section className="space-y-8">
+            <h2 className="text-2xl font-bold tracking-tight">Comments</h2>
+            <Giscus />
+          </section>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Next.js 14 and App Router"
 title_fa: "شروع کار با Next.js 14 و App Router"
-date: "2024-12-20"
+date: "2025-01-15"
 description: "A comprehensive guide to building modern web applications with Next.js 14, covering the App Router, Server Components, and best practices."
 description_fa: "راهنمای جامع ساخت اپلیکیشن‌های وب مدرن با Next.js 14، شامل App Router، Server Components و بهترین روش‌ها."
 category: "Technology"

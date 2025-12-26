@@ -1,11 +1,11 @@
 ---
 title: "A Complete Guide to MDX Features in Our Blog"
-date: "2024-12-20"
+date: "2025-01-10"
 description: "Explore all the rich text features available in our blog including math equations, code blocks, callouts, tables, and more."
 category: "Tutorials"
 tags: ["MDX", "Markdown", "Documentation", "Features"]
 featured: true
-author: "Author"
+author: "Parsa"
 ---
 
 This post demonstrates all the rich text features available in our blog. From mathematical equations to syntax-highlighted code blocks, callouts, and more.

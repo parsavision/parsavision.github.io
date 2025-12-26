@@ -4,7 +4,9 @@ import { HomeContent } from "@/components/HomeContent";
 export default function HomePage() {
   const allPosts = getAllPosts();
   const featuredPosts = getFeaturedPosts();
-  const recentPosts = allPosts.slice(0, 6);
+  // Exclude featured posts from recent posts to avoid duplicates
+  const nonFeaturedPosts = allPosts.filter(post => !post.frontmatter.featured);
+  const recentPosts = nonFeaturedPosts.slice(0, 6);
   const categories = getAllCategories().slice(0, 5);
   const tags = getAllTags().slice(0, 10);
 

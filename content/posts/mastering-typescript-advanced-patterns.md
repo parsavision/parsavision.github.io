@@ -1,11 +1,11 @@
 ---
 title: "Mastering TypeScript: Advanced Patterns and Best Practices"
-date: "2024-12-18"
+date: "2025-01-05"
 description: "Deep dive into advanced TypeScript patterns including generics, conditional types, and type inference that will level up your code."
 category: "Programming"
 tags: ["TypeScript", "JavaScript", "Programming", "Best Practices"]
 featured: true
-author: "Your Name"
+author: "Parsa"
 ---
 
 TypeScript has become the go-to choice for building large-scale JavaScript applications. In this post, we'll explore advanced patterns that will help you write more maintainable and type-safe code.

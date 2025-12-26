@@ -1,11 +1,11 @@
 ---
 title: "Building a Design System with Tailwind CSS"
-date: "2024-12-15"
+date: "2024-12-28"
 description: "Learn how to create a consistent, maintainable design system using Tailwind CSS, including custom themes, component patterns, and best practices."
 category: "Tutorials"
 tags: ["Tailwind CSS", "CSS", "Design System", "UI/UX"]
 featured: false
-author: "Your Name"
+author: "Parsa"
 ---
 
 A well-designed design system ensures consistency across your application while speeding up development. In this tutorial, we'll build one using Tailwind CSS.

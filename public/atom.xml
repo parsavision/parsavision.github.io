@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://yourblog.github.io</id>
-    <title>MyBlog</title>
-    <updated>2024-12-20T00:00:00.000Z</updated>
+    <id>https://parsavision.github.io</id>
+    <title>Parsa's Blog</title>
+    <updated>2025-01-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
-        <name>Your Name</name>
-        <email>hello@example.com</email>
+        <name>Parsa</name>
+        <email>parsa@parsavision.com</email>
     </author>
-    <link rel="alternate" href="https://yourblog.github.io"/>
-    <link rel="self" href="https://yourblog.github.io/atom.xml"/>
-    <subtitle>A personal blog about technology, programming, and life.</subtitle>
-    <rights>All rights reserved 2025</rights>
-    <entry>
-        <title type="html"><![CDATA[A Complete Guide to MDX Features in Our Blog]]></title>
-        <id>https://yourblog.github.io/blog/complete-guide-to-mdx-features/</id>
-        <link href="https://yourblog.github.io/blog/complete-guide-to-mdx-features/"/>
-        <updated>2024-12-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Explore all the rich text features available in our blog including math equations, code blocks, callouts, tables, and more.]]></summary>
-    </entry>
+    <link rel="alternate" href="https://parsavision.github.io"/>
+    <link rel="self" href="https://parsavision.github.io/atom.xml"/>
+    <subtitle>Personal blog about Rust, systems programming, security, and DevOps. I use Arch btw.</subtitle>
+    <rights>All rights reserved 2025, Parsa</rights>
     <entry>
         <title type="html"><![CDATA[Getting Started with Next.js 14 and App Router]]></title>
-        <id>https://yourblog.github.io/blog/getting-started-with-nextjs-14/</id>
-        <link href="https://yourblog.github.io/blog/getting-started-with-nextjs-14/"/>
-        <updated>2024-12-20T00:00:00.000Z</updated>
+        <id>https://parsavision.github.io/blog/getting-started-with-nextjs-14/</id>
+        <link href="https://parsavision.github.io/blog/getting-started-with-nextjs-14/"/>
+        <updated>2025-01-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A comprehensive guide to building modern web applications with Next.js 14, covering the App Router, Server Components, and best practices.]]></summary>
     </entry>
     <entry>
+        <title type="html"><![CDATA[A Complete Guide to MDX Features in Our Blog]]></title>
+        <id>https://parsavision.github.io/blog/complete-guide-to-mdx-features/</id>
+        <link href="https://parsavision.github.io/blog/complete-guide-to-mdx-features/"/>
+        <updated>2025-01-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Explore all the rich text features available in our blog including math equations, code blocks, callouts, tables, and more.]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Mastering TypeScript: Advanced Patterns and Best Practices]]></title>
-        <id>https://yourblog.github.io/blog/mastering-typescript-advanced-patterns/</id>
-        <link href="https://yourblog.github.io/blog/mastering-typescript-advanced-patterns/"/>
-        <updated>2024-12-18T00:00:00.000Z</updated>
+        <id>https://parsavision.github.io/blog/mastering-typescript-advanced-patterns/</id>
+        <link href="https://parsavision.github.io/blog/mastering-typescript-advanced-patterns/"/>
+        <updated>2025-01-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Deep dive into advanced TypeScript patterns including generics, conditional types, and type inference that will level up your code.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Building a Design System with Tailwind CSS]]></title>
-        <id>https://yourblog.github.io/blog/building-design-system-tailwind/</id>
-        <link href="https://yourblog.github.io/blog/building-design-system-tailwind/"/>
-        <updated>2024-12-15T00:00:00.000Z</updated>
+        <id>https://parsavision.github.io/blog/building-design-system-tailwind/</id>
+        <link href="https://parsavision.github.io/blog/building-design-system-tailwind/"/>
+        <updated>2024-12-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn how to create a consistent, maintainable design system using Tailwind CSS, including custom themes, component patterns, and best practices.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[The Power of Static Site Generation for Blogs]]></title>
-        <id>https://yourblog.github.io/blog/power-of-static-site-generation/</id>
-        <link href="https://yourblog.github.io/blog/power-of-static-site-generation/"/>
-        <updated>2024-12-10T00:00:00.000Z</updated>
+        <id>https://parsavision.github.io/blog/power-of-static-site-generation/</id>
+        <link href="https://parsavision.github.io/blog/power-of-static-site-generation/"/>
+        <updated>2024-12-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.]]></summary>
     </entry>
 </feed>

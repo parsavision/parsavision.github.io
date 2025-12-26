@@ -1,187 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yourblog.github.io/</loc>
+    <loc>https://parsavision.github.io/</loc>
     
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/blog/</loc>
+    <loc>https://parsavision.github.io/blog/</loc>
     
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/about/</loc>
+    <loc>https://parsavision.github.io/about/</loc>
     
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/blog/complete-guide-to-mdx-features/</loc>
+    <loc>https://parsavision.github.io/blog/getting-started-with-nextjs-14/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://parsavision.github.io/blog/complete-guide-to-mdx-features/</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://parsavision.github.io/blog/mastering-typescript-advanced-patterns/</loc>
+    <lastmod>2025-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://parsavision.github.io/blog/building-design-system-tailwind/</loc>
+    <lastmod>2024-12-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://parsavision.github.io/blog/power-of-static-site-generation/</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/blog/getting-started-with-nextjs-14/</loc>
-    <lastmod>2024-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://yourblog.github.io/blog/mastering-typescript-advanced-patterns/</loc>
-    <lastmod>2024-12-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://yourblog.github.io/blog/building-design-system-tailwind/</loc>
-    <lastmod>2024-12-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://yourblog.github.io/blog/power-of-static-site-generation/</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://yourblog.github.io/category/tutorials/</loc>
+    <loc>https://parsavision.github.io/category/technology/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/category/technology/</loc>
+    <loc>https://parsavision.github.io/category/tutorials/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/category/programming/</loc>
+    <loc>https://parsavision.github.io/category/programming/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/mdx/</loc>
+    <loc>https://parsavision.github.io/tag/next.js/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/markdown/</loc>
+    <loc>https://parsavision.github.io/tag/react/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/documentation/</loc>
+    <loc>https://parsavision.github.io/tag/web development/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/features/</loc>
+    <loc>https://parsavision.github.io/tag/tutorial/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/next.js/</loc>
+    <loc>https://parsavision.github.io/tag/mdx/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/react/</loc>
+    <loc>https://parsavision.github.io/tag/markdown/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/web development/</loc>
+    <loc>https://parsavision.github.io/tag/documentation/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/tutorial/</loc>
+    <loc>https://parsavision.github.io/tag/features/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/typescript/</loc>
+    <loc>https://parsavision.github.io/tag/typescript/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/javascript/</loc>
+    <loc>https://parsavision.github.io/tag/javascript/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/programming/</loc>
+    <loc>https://parsavision.github.io/tag/programming/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/best practices/</loc>
+    <loc>https://parsavision.github.io/tag/best practices/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/tailwind css/</loc>
+    <loc>https://parsavision.github.io/tag/tailwind css/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/css/</loc>
+    <loc>https://parsavision.github.io/tag/css/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/design system/</loc>
+    <loc>https://parsavision.github.io/tag/design system/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/ui/ux/</loc>
+    <loc>https://parsavision.github.io/tag/ui/ux/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/ssg/</loc>
+    <loc>https://parsavision.github.io/tag/ssg/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/performance/</loc>
+    <loc>https://parsavision.github.io/tag/performance/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/seo/</loc>
+    <loc>https://parsavision.github.io/tag/seo/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://yourblog.github.io/tag/blogging/</loc>
+    <loc>https://parsavision.github.io/tag/blogging/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

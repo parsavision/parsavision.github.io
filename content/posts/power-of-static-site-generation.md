@@ -1,11 +1,11 @@
 ---
 title: "The Power of Static Site Generation for Blogs"
-date: "2024-12-10"
+date: "2024-12-20"
 description: "Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience."
 category: "Technology"
 tags: ["SSG", "Performance", "SEO", "Blogging"]
 featured: false
-author: "Your Name"
+author: "Parsa"
 ---
 
 Static Site Generation (SSG) has become the gold standard for blogs and content-focused websites. Let's explore why and how to make the most of it.

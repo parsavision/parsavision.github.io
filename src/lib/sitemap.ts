@@ -8,7 +8,7 @@ interface SitemapPage {
 }
 
 export function generateSitemap(): string {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourblog.github.io";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://parsavision.github.io";
   const posts = getAllPosts();
   const categories = getAllCategories();
   const tags = getAllTags();
