@@ -8,7 +8,6 @@ import { ReadingProgress } from "@/components/ReadingProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Separator } from "@/components/ui/separator";
 import { BlogPostContent } from "@/components/BlogPostContent";
-import { Giscus } from "@/components/Giscus";
 import type { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -206,17 +205,6 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       )}
-
-      {/* Comments Section */}
-      <div className="container mx-auto px-4 pb-12">
-        <div className="max-w-4xl mx-auto">
-          <Separator className="mb-12" />
-          <section className="space-y-8">
-            <h2 className="text-2xl font-bold tracking-tight">Comments</h2>
-            <Giscus />
-          </section>
-        </div>
-      </div>
     </>
   );
 }
