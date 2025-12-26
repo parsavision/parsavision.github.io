@@ -11,6 +11,7 @@ import { BlogPostContent } from "@/components/BlogPostContent";
 import type { Metadata } from "next";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { remarkObsidianImages } from "@/lib/remark-obsidian-images";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -126,7 +127,7 @@ export default async function BlogPostPage({ params }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mdxOptions: any = {
     mdxOptions: {
-      remarkPlugins: [remarkGfm, remarkMath],
+      remarkPlugins: [remarkObsidianImages, remarkGfm, remarkMath],
       rehypePlugins: [
         rehypeSlug,
         rehypeKatex,

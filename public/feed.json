@@ -10,7 +10,7 @@
     "items": [
         {
             "id": "https://parsavision.github.io/blog/IPC-Inter-process -communication/",
-            "content_html": "Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.",
+            "content_html": "IPC is a set of programming interfaces and methods that allow processes to communicate and synchronize their actions.",
             "url": "https://parsavision.github.io/blog/IPC-Inter-process -communication/",
             "title": "IPC-Inter-process -communication",
             "date_modified": "2025-12-26T00:00:00.000Z"

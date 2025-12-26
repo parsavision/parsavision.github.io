@@ -9,9 +9,49 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, "..");
 
+// Image extensions to copy from content/posts to public/images/posts
+const imageExtensions = [".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".avif"];
+
+// Copy images from content/posts to public/images/posts
+function copyPostImages() {
+  const contentPostsDir = path.join(rootDir, "content", "posts");
+  const publicImagesDir = path.join(rootDir, "public", "images", "posts");
+
+  // Create target directory if it doesn't exist
+  if (!fs.existsSync(publicImagesDir)) {
+    fs.mkdirSync(publicImagesDir, { recursive: true });
+  }
+
+  if (!fs.existsSync(contentPostsDir)) {
+    return;
+  }
+
+  // Get all files in content/posts
+  const files = fs.readdirSync(contentPostsDir);
+
+  for (const file of files) {
+    const ext = path.extname(file).toLowerCase();
+    if (imageExtensions.includes(ext)) {
+      const srcPath = path.join(contentPostsDir, file);
+      const destPath = path.join(publicImagesDir, file);
+      
+      // Only copy if source is newer or destination doesn't exist
+      if (!fs.existsSync(destPath) || 
+          fs.statSync(srcPath).mtime > fs.statSync(destPath).mtime) {
+        fs.copyFileSync(srcPath, destPath);
+        console.log(`  - Copied image: ${file}`);
+      }
+    }
+  }
+}
+
 // We need to build the modules first, so this uses dynamic imports
 async function main() {
   console.log("Generating static files...");
+
+  // Copy post images from content/posts to public/images/posts
+  console.log("  - Copying post images...");
+  copyPostImages();
 
   // Create public directory if it doesn't exist
   const publicDir = path.join(rootDir, "public");

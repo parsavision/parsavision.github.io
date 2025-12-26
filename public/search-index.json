@@ -2,13 +2,13 @@
   {
     "slug": "IPC-Inter-process -communication",
     "title": "IPC-Inter-process -communication",
-    "description": "Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.",
+    "description": "IPC is a set of programming interfaces and methods that allow processes to communicate and synchronize their actions.",
     "date": "2025-12-26T00:00:00.000Z",
     "tags": [
       "Tutorial"
     ],
     "category": "Technology",
-    "readingTime": "3 min read"
+    "readingTime": "6 min read"
   },
   {
     "slug": "getting-started-with-nextjs-14",
