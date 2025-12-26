@@ -9,6 +9,13 @@
     },
     "items": [
         {
+            "id": "https://parsavision.github.io/blog/IPC-Inter-process -communication/",
+            "content_html": "Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.",
+            "url": "https://parsavision.github.io/blog/IPC-Inter-process -communication/",
+            "title": "IPC-Inter-process -communication",
+            "date_modified": "2025-12-26T00:00:00.000Z"
+        },
+        {
             "id": "https://parsavision.github.io/blog/getting-started-with-nextjs-14/",
             "content_html": "A comprehensive guide to building modern web applications with Next.js 14, covering the App Router, Server Components, and best practices.",
             "url": "https://parsavision.github.io/blog/getting-started-with-nextjs-14/",

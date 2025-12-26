@@ -1,5 +1,16 @@
 [
   {
+    "slug": "IPC-Inter-process -communication",
+    "title": "IPC-Inter-process -communication",
+    "description": "Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.",
+    "date": "2025-12-26T00:00:00.000Z",
+    "tags": [
+      "Tutorial"
+    ],
+    "category": "Technology",
+    "readingTime": "3 min read"
+  },
+  {
     "slug": "getting-started-with-nextjs-14",
     "title": "Getting Started with Next.js 14 and App Router",
     "description": "A comprehensive guide to building modern web applications with Next.js 14, covering the App Router, Server Components, and best practices.",

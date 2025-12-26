@@ -19,6 +19,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://parsavision.github.io/blog/IPC-Inter-process -communication/</loc>
+    <lastmod>Fri Dec 26 2025 03:30:00 GMT+0330 (Iran Standard Time)</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://parsavision.github.io/blog/getting-started-with-nextjs-14/</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -67,6 +73,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://parsavision.github.io/tag/tutorial/</loc>
+    
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://parsavision.github.io/tag/next.js/</loc>
     
     <changefreq>weekly</changefreq>
@@ -80,12 +92,6 @@
   </url>
   <url>
     <loc>https://parsavision.github.io/tag/web development/</loc>
-    
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://parsavision.github.io/tag/tutorial/</loc>
     
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://parsavision.github.io</id>
     <title>Parsa's Blog</title>
-    <updated>2025-01-15T00:00:00.000Z</updated>
+    <updated>2025-12-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Parsa</name>
@@ -12,6 +12,13 @@
     <link rel="self" href="https://parsavision.github.io/atom.xml"/>
     <subtitle>Personal blog about Rust, systems programming, security, and DevOps. I use Arch btw.</subtitle>
     <rights>All rights reserved 2025, Parsa</rights>
+    <entry>
+        <title type="html"><![CDATA[IPC-Inter-process -communication]]></title>
+        <id>https://parsavision.github.io/blog/IPC-Inter-process -communication/</id>
+        <link href="https://parsavision.github.io/blog/IPC-Inter-process -communication/"/>
+        <updated>2025-12-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Why static site generation is perfect for blogs, and how to leverage it for maximum performance, SEO, and developer experience.]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Getting Started with Next.js 14 and App Router]]></title>
         <id>https://parsavision.github.io/blog/getting-started-with-nextjs-14/</id>

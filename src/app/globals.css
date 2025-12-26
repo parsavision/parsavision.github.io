@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* CSS Custom Properties for shadcn/ui theming */
 :root {
@@ -62,7 +63,7 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Prose styling for MDX content */
+/* Prose styling for MDX content - Dark theme overrides */
 .prose {
   --tw-prose-body: hsl(var(--foreground));
   --tw-prose-headings: hsl(var(--foreground));
@@ -80,6 +81,68 @@ body {
   --tw-prose-pre-bg: hsl(var(--card));
   --tw-prose-th-borders: hsl(var(--border));
   --tw-prose-td-borders: hsl(var(--border));
+  
+  /* Invert colors for dark theme */
+  --tw-prose-invert-body: hsl(var(--foreground));
+  --tw-prose-invert-headings: hsl(var(--foreground));
+  --tw-prose-invert-lead: hsl(var(--muted-foreground));
+  --tw-prose-invert-links: hsl(var(--foreground));
+  --tw-prose-invert-bold: hsl(var(--foreground));
+  --tw-prose-invert-counters: hsl(var(--muted-foreground));
+  --tw-prose-invert-bullets: hsl(var(--muted-foreground));
+  --tw-prose-invert-hr: hsl(var(--border));
+  --tw-prose-invert-quotes: hsl(var(--foreground));
+  --tw-prose-invert-quote-borders: hsl(var(--muted-foreground));
+  --tw-prose-invert-captions: hsl(var(--muted-foreground));
+  --tw-prose-invert-code: hsl(var(--foreground));
+  --tw-prose-invert-pre-code: hsl(var(--foreground));
+  --tw-prose-invert-pre-bg: hsl(var(--card));
+  --tw-prose-invert-th-borders: hsl(var(--border));
+  --tw-prose-invert-td-borders: hsl(var(--border));
+}
+
+/* Enhanced heading spacing */
+.prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+/* Enhanced paragraph spacing */
+.prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* Enhanced list spacing */
+.prose :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Enhanced blockquote */
+.prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em 1.5em;
+  background-color: hsl(var(--secondary) / 0.3);
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 /* Inline code styling within prose */
@@ -131,40 +194,7 @@ pre code {
   background-color: transparent !important;
 }
 
-/* Syntax highlighting */
-[data-rehype-pretty-code-figure] {
-  @apply relative my-6;
-}
-
-[data-rehype-pretty-code-figure] pre {
-  @apply py-4;
-}
-
-[data-rehype-pretty-code-title] {
-  @apply rounded-t-lg border border-b-0 border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-4 py-2 text-sm font-medium;
-}
-
-[data-rehype-pretty-code-title] + pre {
-  @apply rounded-t-none;
-}
-
-[data-line] {
-  @apply px-4 border-l-2 border-transparent;
-}
-
-[data-highlighted-line] {
-  @apply bg-[hsl(var(--secondary))] border-l-blue-500;
-}
-
-[data-line-numbers] {
-  counter-reset: line;
-}
-
-[data-line-numbers] > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-  @apply mr-4 inline-block w-4 text-right text-muted-foreground;
-}
+/* Syntax highlighting - see enhanced version below */
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
@@ -263,16 +293,28 @@ a {
 }
 
 /* Table styling */
-table {
-  @apply w-full border-collapse my-6;
+table,
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.9375rem;
 }
 
-th {
-  @apply border border-[hsl(var(--border))] bg-[hsl(var(--secondary))] px-4 py-2 text-left font-semibold;
+th,
+.prose th {
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--secondary));
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
 }
 
-td {
-  @apply border border-[hsl(var(--border))] px-4 py-2;
+td,
+.prose td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.75rem 1rem;
 }
 
 td code,
@@ -280,9 +322,13 @@ th code {
   @apply rounded bg-[hsl(var(--muted))] px-1.5 py-0.5 text-sm font-mono text-[hsl(var(--foreground))];
 }
 
-/* Blockquote styling */
-blockquote {
-  @apply border-l-4 border-[hsl(var(--border))] pl-4 italic my-6 text-[hsl(var(--muted-foreground))];
+/* Blockquote styling - Enhanced */
+.prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) p:first-child {
+  margin-top: 0;
+}
+
+.prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) p:last-child {
+  margin-bottom: 0;
 }
 
 /* Heading anchor links */
