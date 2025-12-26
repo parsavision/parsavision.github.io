@@ -8,10 +8,6 @@ tags:
 featured: false
 author: Parsa
 ---
-Certainly! Here is the blog post about **Inter-Process Communication (IPC)** in English.
-
----
-
 # Understanding Inter-Process Communication (IPC): How Programs Talk to Each Other
 
 In a modern operating system, thousands of tasks happen simultaneously. Each running program is called a **Process**. By design, the operating system keeps these processes isolated in their own private memory space to prevent one crashing program from taking down the entire system.
