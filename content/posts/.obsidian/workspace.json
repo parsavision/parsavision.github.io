@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mastering-typescript-advanced-patterns.md",
+                "file": "IPC-Inter-process -communication.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "mastering-typescript-advanced-patterns"
+              "title": "IPC-Inter-process -communication"
             }
           }
         ],
@@ -199,7 +199,9 @@
   "active": "a1a1102aa7929dd5",
   "lastOpenFiles": [
     "power-of-static-site-generation.md",
+    "IPC-Inter-process -communication.md",
     "Untitled.md",
+    "mastering-typescript-advanced-patterns.md",
     "test.md",
     "Untitled 1.md",
     "Untitled.canvas",
